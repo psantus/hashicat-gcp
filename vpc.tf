@@ -2,7 +2,7 @@ module "vpc" {
     source  = "terraform-google-modules/network/google"
     version = "~> 2.5"
 
-    project_id   = var.project
+    project_id   = var.project 
     network_name = "psantus-vpc"
     routing_mode = "GLOBAL"
 
@@ -39,7 +39,7 @@ module "vpc" {
             destination_range      = "10.50.10.0/24"
             tags                   = "app-proxy"
             next_hop_instance      = "app-proxy-instance"
-            next_hop_instance_zone = "us-west1-a"
+            next_hop_instance_zone = var.zone 
         },
     ]
 }
